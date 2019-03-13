@@ -1,0 +1,15 @@
+Instructions for objectives
+
+The first part of the objectives includes requirement for the hash value to be in 512 length. The program contains padding part of the code that will fill in short message with the bits  in between by checking the length of message and modding it to 512 .Thus all the generated hash values will be the same length. The second part of the requirement is to have the pre-processed message to be computed through implementation of the SHA-1 pseudocode
+Pseudocode/Python padding code 
+(Message) + (0X80) + 
+
+for n in range(len(data)):
+        bytes+='{0:08b}'.format(ord(data[n]))
+    bits = bytes+"1"
+    pBits = bits
+   (Padding of ‘0’s such that messageLength % 512 = 448) +
+  while len(pBits)%512 != 448:
+        pBits+="0"
+( 64-bit integer with value equal to the length of the message).
+    pBits+='{0:064b}'.format(len(bits)-1)
